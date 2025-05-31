@@ -1,5 +1,4 @@
 "use client";
-
 import { z } from "zod";
 import Link from "next/link";
 import Image from "next/image";
@@ -156,5 +155,4 @@ const AuthForm = ({ type }: { type: FormType }) => {
     </div>
   );
 };
-
 export default AuthForm;
