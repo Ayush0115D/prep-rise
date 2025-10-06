@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Mona_Sans } from "next/font/google";
 
 import "./globals.css";
+import LogoutButton from "@/components/LogoutButton"; // your existing button
 
 const monaSans = Mona_Sans({
   variable: "--font-mona-sans",
@@ -16,14 +17,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="dark">
       <body className={`${monaSans.className} antialiased pattern`}>
+        <LogoutButton /> {/* conditionally hidden inside button itself */}
         {children}
-
         <Toaster />
       </body>
     </html>
