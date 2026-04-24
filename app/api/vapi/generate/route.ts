@@ -1,11 +1,14 @@
 import { generateText } from "ai";
 import { google } from "@ai-sdk/google";
+import { revalidatePath } from "next/cache";
 
 import { db } from "@/firebase/admin";
 import { getRandomInterviewCover } from "@/lib/utils";
 
 export async function POST(request: Request) {
     const { type, role, level, techstack, amount, userid } = await request.json();
+
+    console.log("[/api/vapi/generate] Request received:", { type, role, level, techstack, amount, userid });
 
     try {
         const { text: questions } = await generateText({
@@ -37,12 +40,20 @@ export async function POST(request: Request) {
             createdAt: new Date().toISOString(),
         };
 
-        await db.collection("interviews").add(interview);
+        console.log("[/api/vapi/generate] Interview object:", interview);
+        
+        const docRef = await db.collection("interviews").add(interview);
 
-        return Response.json({ success: true }, { status: 200 });
+        console.log("[/api/vapi/generate] ✅ Interview CREATED with ID:", docRef.id, "for user:", userid);
+
+        // Revalidate all paths that display interviews
+        revalidatePath("/", "layout");
+        revalidatePath("/(root)", "layout");
+
+        return Response.json({ success: true, interviewId: docRef.id }, { status: 200 });
     } catch (error) {
-        console.error("Error:", error);
-        return Response.json({ success: false, error: error }, { status: 500 });
+        console.error("[/api/vapi/generate] ❌ ERROR:", error);
+        return Response.json({ success: false, error: String(error) }, { status: 500 });
     }
 }
 

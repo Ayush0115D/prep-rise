@@ -112,14 +112,37 @@ export async function getLatestInterviews(
 export async function getInterviewsByUserId(
     userId: string
 ): Promise<Interview[] | null> {
+    try {
+        const interviews = await db
+            .collection("interviews")
+            .where("userId", "==", userId)
+            .orderBy("createdAt", "desc")
+            .get();
+
+        console.log(`Found ${interviews.docs.length} interviews for user ${userId}`);
+
+        return interviews.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+        })) as Interview[];
+    } catch (error) {
+        console.error("Error fetching interviews:", error);
+        return null;
+    }
+}
+export async function getLatestInterviewByUserId(
+    userId: string
+): Promise<Interview | null> {
     const interviews = await db
         .collection("interviews")
         .where("userId", "==", userId)
+        .where("finalized", "==", true)
         .orderBy("createdAt", "desc")
+        .limit(1)
         .get();
 
-    return interviews.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-    })) as Interview[];
+    if (interviews.empty) return null;
+
+    const doc = interviews.docs[0];
+    return { id: doc.id, ...doc.data() } as Interview;
 }
