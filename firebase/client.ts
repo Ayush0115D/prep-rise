@@ -3,15 +3,19 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCWM5NmvmnvJ_0nyY-sIahi6oBGDPKb5Zg",
-    authDomain: "prep-rise-b5289.firebaseapp.com",
-    projectId: "prep-rise-b5289",
-    storageBucket: "prep-rise-b5289.firebasestorage.app",
-    messagingSenderId: "976978799692",
-    appId: "1:976978799692:web:104bdb4d8697b2e16758e9"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
+if (!firebaseConfig.apiKey) {
+  throw new Error("Firebase config missing! Check .env.local");
+}
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+
+console.log("✅ Firebase initialized");
