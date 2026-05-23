@@ -1,90 +1,121 @@
+# 🎤 PrepRise — AI-Powered Interview Preparation Platform
+
 <div align="center">
-  <br />
-    <a href="img.svg" target="_blank">
-      <img src="logo.svg" alt="Project Banner  ">
-    </a>
-  <br />
-  
-  <div>
-    <img src="https://img.shields.io/badge/-Next.JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=black" alt="next.js" />
-    <img src="https://img.shields.io/badge/-Vapi-white?style=for-the-badge&color=5dfeca" alt="vapi" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
-    <img src="https://img.shields.io/badge/-Firebase-black?style=for-the-badge&logoColor=white&logo=firebase&color=DD2C00" alt="firebase" />
-  </div>
 
-  <h3 align="center">Prepwise: A job interview preparation platform powered by Vapi AI Voice agents</h3>
+<img src="logo.svg" alt="PrepRise Banner" />
 
-   <div align="center">
-     Build this project step by step with our detailed tutorial on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube. Join the JSM family!
-    </div>
+<br />
+
+![Next.js](https://img.shields.io/badge/Next.js-000?style=for-the-badge&logo=next.js&logoColor=white)
+![Vapi AI](https://img.shields.io/badge/Vapi_AI-5dfeca?style=for-the-badge&logoColor=black)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=for-the-badge&logo=firebase&logoColor=white)
+![Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)
+
+### Practice smarter with AI-driven mock interviews, voice interaction, and instant feedback.
+
+[Live Demo](https://prep-rise.vercel.app/) • [Report Bug](https://github.com/Ayush0115D/prep-rise/issues) • [Request Feature](https://github.com/Ayush0115D/prep-rise/issues)
+
 </div>
 
-## 📋 <a name="table">Table of Contents</a>
+---
 
-1. 🤖 [Introduction](#introduction)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
-4. 🤸 [Quick Start](#quick-start)
+## 📌 Overview
 
+**PrepRise** is an AI-powered interview preparation platform designed to simulate real interview experiences using intelligent voice agents.
 
-## <a name="tech-stack">⚙️ Tech Stack</a>
+Built with **Next.js**, **Firebase**, and **Vapi AI**, the platform allows users to create personalized mock interviews, interact with AI interviewers in real time, and receive detailed AI-generated feedback to improve performance and confidence.
 
+---
+
+## ⚙️ Tech Stack
+
+### Frontend
 - Next.js
-- Firebase
 - Tailwind CSS
-- Vapi AI
 - shadcn/ui
-- Google Gemeni
-- Zod
 
-## <a name="features">🔋 Features</a>
+### Backend & Services
+- Firebase Authentication
+- Firebase Firestore
 
-👉 **Authentication**: Sign Up and Sign In using password/email authentication handled by Firebase.
+### AI & Voice
+- Vapi AI
+- Google Gemini
+d
 
-👉 **Create Interviews**: Easily generate job interviews with help of Vapi voice assistants and Google Gemini.
+---
 
-👉 **Get feedback from AI**: Take the interview with AI voice agent, and receive instant feedback based on your conversation.
+## ✨ Features
 
-👉 **Modern UI/UX**: A sleek and user-friendly interface designed for a great experience.
+### 🔐 Authentication
+Secure user authentication using Firebase email/password login system.
 
-👉 **Interview Page**: Conduct AI-driven interviews with real-time feedback and detailed transcripts.
+### 🤖 AI Interview Generation
+Generate personalized interviews based on job role and technical stack.
 
-👉 **Dashboard**: Manage and track all your interviews with easy navigation.
+### 🎙️ Voice-Based AI Interviews
+Practice interviews with real-time conversational AI voice agents powered by Vapi.
 
-👉 **Responsiveness**: Fully responsive design that works seamlessly across devices.
+### 📊 Instant Feedback System
+Receive AI-generated feedback, performance analysis, and interview transcripts after each session.
 
-and many more, including code architecture and reusability
+### 📁 Dashboard Management
+Track and manage all completed interviews from a centralized dashboard.
 
-## <a name="quick-start">🤸 Quick Start</a>
+### 📱 Responsive UI
+Fully responsive modern interface optimized for all screen sizes.
+
+### 🧩 Clean Architecture
+Scalable and reusable code architecture for maintainability and performance.
+
+---
+
+## 🚀 Live Demo
+
+👉 **Production URL:**  
+https://prep-rise.vercel.app/
+
+---
+
+
+
+# 🤸 Quick Start
 
 Follow these steps to set up the project locally on your machine.
 
-**Prerequisites**
+---
 
-Make sure you have the following installed on your machine:
+## 📋 Prerequisites
+
+Make sure you have the following installed:
 
 - [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/en)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
 
-**Cloning the Repository**
+---
+
+## 📥 Clone Repository
 
 ```bash
-git clone git@github.com:Ayush0115D/prep-rise.git 
+git clone git@github.com:Ayush0115D/prep-rise.git
 cd prep-rise
 ```
 
-**Installation**
+---
 
-Install the project dependencies using npm:
+## 📦 Install Dependencies
 
 ```bash
 npm install
 ```
 
-**Set Up Environment Variables**
+---
 
-Create a new file named `.env.local` in the root of your project and add the following content:
+## 🔑 Environment Variables
+
+Create a `.env.local` file in the root directory and add the following variables:
 
 ```env
 NEXT_PUBLIC_VAPI_WEB_TOKEN=
@@ -106,12 +137,93 @@ FIREBASE_CLIENT_EMAIL=
 FIREBASE_PRIVATE_KEY=
 ```
 
-Replace the placeholder values with your actual **[Firebase](https://firebase.google.com/)**, **[Vapi](https://vapi.ai/?utm_source=youtube&utm_medium=video&utm_campaign=jsmastery_recruitingpractice&utm_content=paid_partner&utm_term=recruitingpractice)** credentials.
+Replace all placeholder values with your actual credentials from:
+- Firebase
+- Vapi AI
+- Google Gemini
 
-**Running the Project**
+---
+
+## ▶️ Run Development Server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+Open your browser and visit:
+
+```bash
+http://localhost:3000
+```
+
+---
+
+# 📂 Project Structure
+
+```bash
+prep-rise/
+│
+├── app/                 # App router pages
+├── components/          # Reusable UI components
+├── constants/           # Static constants
+├── firebase/            # Firebase configuration
+├── lib/                 # Utility functions
+├── public/              # Static assets
+├── styles/              # Global styles
+├── types/               # TypeScript types
+│
+├── .env.local
+├── package.json
+└── README.md
+```
+
+---
+
+# 🛠️ Scripts
+
+```bash
+npm run dev       # Start development server
+npm run build     # Build for production
+npm run start     # Start production server
+npm run lint      # Run ESLint
+```
+
+---
+
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+If you'd like to contribute:
+
+1. Fork the repository
+2. Create a new branch
+
+```bash
+git checkout -b feature/your-feature-name
+```
+
+3. Commit your changes
+
+```bash
+git commit -m "Add your message"
+```
+
+4. Push to the branch
+
+```bash
+git push origin feature/your-feature-name
+```
+
+5. Open a Pull Request
+
+---
+
+
+
+<div align="center">
+
+### ⭐ If you found this project helpful, consider giving it a star on GitHub!
+
+</div>
